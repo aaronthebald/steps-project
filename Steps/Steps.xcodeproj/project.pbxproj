@@ -11,6 +11,7 @@
 		02BFD2832BC08BC9009A2EB1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BFD2822BC08BC9009A2EB1 /* ContentView.swift */; };
 		02BFD2852BC08BCA009A2EB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02BFD2842BC08BCA009A2EB1 /* Assets.xcassets */; };
 		02BFD2882BC08BCA009A2EB1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02BFD2872BC08BCA009A2EB1 /* Preview Assets.xcassets */; };
+		02BFD2902BC17EF9009A2EB1 /* HealthDataAccessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BFD28F2BC17EF9009A2EB1 /* HealthDataAccessManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,9 @@
 		02BFD2822BC08BC9009A2EB1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		02BFD2842BC08BCA009A2EB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		02BFD2872BC08BCA009A2EB1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		02BFD28F2BC17EF9009A2EB1 /* HealthDataAccessManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDataAccessManager.swift; sourceTree = "<group>"; };
+		02BFD2912BC1D2A5009A2EB1 /* Steps.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Steps.entitlements; sourceTree = "<group>"; };
+		02BFD2922BC1D360009A2EB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,9 @@
 		02BFD27F2BC08BC9009A2EB1 /* Steps */ = {
 			isa = PBXGroup;
 			children = (
+				02BFD2922BC1D360009A2EB1 /* Info.plist */,
+				02BFD2912BC1D2A5009A2EB1 /* Steps.entitlements */,
+				02BFD28E2BC17ECC009A2EB1 /* HealthDataAccess */,
 				02BFD2802BC08BC9009A2EB1 /* StepsApp.swift */,
 				02BFD2822BC08BC9009A2EB1 /* ContentView.swift */,
 				02BFD2842BC08BCA009A2EB1 /* Assets.xcassets */,
@@ -67,6 +74,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		02BFD28E2BC17ECC009A2EB1 /* HealthDataAccess */ = {
+			isa = PBXGroup;
+			children = (
+				02BFD28F2BC17EF9009A2EB1 /* HealthDataAccessManager.swift */,
+			);
+			path = HealthDataAccess;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,6 +92,7 @@
 				02BFD2792BC08BC9009A2EB1 /* Sources */,
 				02BFD27A2BC08BC9009A2EB1 /* Frameworks */,
 				02BFD27B2BC08BC9009A2EB1 /* Resources */,
+				026B80992BDDA7C500357931 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -132,6 +148,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		026B80992BDDA7C500357931 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		02BFD2792BC08BC9009A2EB1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -139,6 +175,7 @@
 			files = (
 				02BFD2832BC08BC9009A2EB1 /* ContentView.swift in Sources */,
 				02BFD2812BC08BC9009A2EB1 /* StepsApp.swift in Sources */,
+				02BFD2902BC17EF9009A2EB1 /* HealthDataAccessManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,7 +219,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -245,7 +282,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -269,12 +306,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Steps/Steps.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Steps/Preview Content\"";
 				DEVELOPMENT_TEAM = MW75NQ7TG5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Steps/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "I need to see the step count dingus";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -287,9 +327,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.AaronWilson.Steps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -298,12 +342,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Steps/Steps.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Steps/Preview Content\"";
 				DEVELOPMENT_TEAM = MW75NQ7TG5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Steps/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "I need to see the step count dingus";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -316,9 +363,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.AaronWilson.Steps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

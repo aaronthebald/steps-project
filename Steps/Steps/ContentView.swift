@@ -8,13 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject private var healthService = HealthDataAccessManager()
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("Your step count is \(healthService.steps)")
+            Text("Your Average is ")
         }
+                
         .padding()
     }
 }

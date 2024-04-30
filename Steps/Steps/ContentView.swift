@@ -17,7 +17,7 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             Text("Your step count is \(healthService.steps)")
-            Text("Your Average is ")
+            Text("Your Average is \(healthService.stepsBaseline) ")
         }
                 
         .padding()

@@ -9,16 +9,18 @@ import Foundation
 import HealthKit
 
 class HealthDataAccessManager: ObservableObject {
-     
+
     @Published var steps: String = ""
     @Published var stepsBaseline: Int = 0
-    
+    @Published var showAlert: Bool = false
+    @Published var errorMessage: String?
+
     init() {
         self.requestAccess()
     }
-    
+
     let healthStore = HKHealthStore()
-    
+    let mainThread = DispatchQueue.main
     func requestAccess() {
         let read: Set = [
             HKQuantityType(.stepCount)
@@ -34,7 +36,7 @@ class HealthDataAccessManager: ObservableObject {
             }
         }
     }
-    
+
     func enableBackgroundDelivery() {
         healthStore.enableBackgroundDelivery(for: HKQuantityType(.stepCount), frequency: .immediate) { success, error in
             if let error = error {
@@ -54,17 +56,14 @@ class HealthDataAccessManager: ObservableObject {
                 return
             }
             // Perform any necessary actions when the observer query detects a change
-//            self.fetchAllStats()
+
             print("Observer query detected a change")
             completionHandler()
             self.steps = query.description
             }
         healthStore.execute(observerQuery)
         DispatchQueue.main.sync {
-            
-//            self.queriesRan += 1
-//            print("times ran: \(self.queriesRan)")2212
-            
+
         }
     }
     func setAverage(days: [HKStatistics]) {
@@ -81,6 +80,52 @@ class HealthDataAccessManager: ObservableObject {
             DispatchQueue.main.asyncAfter(deadline: .now()) {
                 self.stepsBaseline = Int(average)
             }
+        }
+    }
+    func testStatisticsCollectionQueryCumulative() {
+        // this is just setting the type of info we can read. If the user disallowed step info i think this would fail.
+        guard let stepCountType = HKObjectType.quantityType(forIdentifier: .stepCount) else {
+            fatalError("*** Unable to get the step count type ***")
+        }
+        // this is used to determine how to slice the time up. By day? Week? Hour min?
+        var interval = DateComponents()
+        interval.day = 1
+        let calendar = Calendar.current
+        guard let anchorDate = calendar.date(bySettingHour: 12, minute: 0, second: 0, of: Date()) else {
+            self.showAlert = true
+            self.errorMessage = "Failure to show anchor date"
+            return
+        }
+        let query = HKStatisticsCollectionQuery.init(quantityType: stepCountType,
+                                                     quantitySamplePredicate: nil,
+                                                     options: .cumulativeSum,
+                                                     anchorDate: anchorDate,
+                                                     intervalComponents: interval)
+        query.initialResultsHandler = { [weak self] query, results, error in
+            guard let oneMonthAgo = Calendar.current.date(byAdding: .month, value: -1, to: Date()) else {
+                self?.showAlert = true
+                self?.errorMessage = "Failure to set start date for collection query"
+                return
+            }
+            let startDate = calendar.startOfDay(for: oneMonthAgo)
+            var statistics: [HKStatistics] = []
+            results?.enumerateStatistics(from: startDate,
+                                         to: Date(), with: { (result, _) in
+                statistics.append(result)
+                print("Time: \(result.startDate.formatted(date: .abbreviated, time: .omitted)), \(result.sumQuantity()?.doubleValue(for: HKUnit.count()) ?? 0)")
+            })
+            self?.sortTheDays(days: statistics)
+        }
+        healthStore.execute(query)
+    }
+    
+    func sortTheDays(days: [HKStatistics]) {
+        var sortedDays = days
+        sortedDays.sort(by: {
+            $0.sumQuantity()?.doubleValue(for: HKUnit.count()) ?? 0 > $1.sumQuantity()?.doubleValue(for: HKUnit.count()) ?? 0
+        })
+        mainThread.sync {
+            self.setAverage(days: sortedDays)
         }
     }
 }

@@ -17,6 +17,7 @@ class HealthDataAccessManager: ObservableObject {
 
     init() {
         self.requestAccess()
+        self.testStatisticsCollectionQueryCumulative()
     }
 
     let healthStore = HKHealthStore()

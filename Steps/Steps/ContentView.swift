@@ -13,10 +13,6 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Your step count is \(healthService.steps)")
             Text("Your Average is \(healthService.stepsBaseline) ")
         }
                 

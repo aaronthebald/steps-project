@@ -119,7 +119,7 @@ class HealthDataAccessManager: ObservableObject {
         }
         healthStore.execute(query)
     }
-    
+
     func sortTheDays(days: [HKStatistics]) {
         var sortedDays = days
         sortedDays.sort(by: {

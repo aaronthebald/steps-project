@@ -69,7 +69,8 @@ class HealthDataAccessManager: ObservableObject {
     }
     func setAverage(days: [HKStatistics]) {
         if days.count < 25 {
-//        TODO: handle if less than 25 days of history
+            errorMessage = "Oops! You need at least 25 days of steps to set an average. Keep walking and check back soon! "
+            showAlert = true
         } else {
             let topEight = days[0...7]
             var sumSteps: Double = 0

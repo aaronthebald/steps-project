@@ -75,8 +75,10 @@ class HealthDataAccessManager: ObservableObject {
             let topEight = days[0...7]
             var sumSteps: Double = 0
             for day in topEight {
-                sumSteps += (day.sumQuantity()?.doubleValue(for: HKUnit.count()))!
-                print(sumSteps)
+                if let dayCount = (day.sumQuantity()?.doubleValue(for: HKUnit.count())) {
+                    sumSteps += dayCount
+                    print(sumSteps)
+                }
             }
             let average = sumSteps / 8
             DispatchQueue.main.asyncAfter(deadline: .now()) {

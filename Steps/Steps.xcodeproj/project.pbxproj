@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		029843C62BFA9F8B0000BF0A /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029843C52BFA9F8B0000BF0A /* ListRowView.swift */; };
 		02BFD2812BC08BC9009A2EB1 /* StepsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BFD2802BC08BC9009A2EB1 /* StepsApp.swift */; };
 		02BFD2832BC08BC9009A2EB1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BFD2822BC08BC9009A2EB1 /* ContentView.swift */; };
 		02BFD2852BC08BCA009A2EB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02BFD2842BC08BCA009A2EB1 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		029843C52BFA9F8B0000BF0A /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
 		02BFD27D2BC08BC9009A2EB1 /* Steps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Steps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02BFD2802BC08BC9009A2EB1 /* StepsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsApp.swift; sourceTree = "<group>"; };
 		02BFD2822BC08BC9009A2EB1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				02BFD28F2BC17EF9009A2EB1 /* HealthDataAccessManager.swift */,
+				029843C52BFA9F8B0000BF0A /* ListRowView.swift */,
 			);
 			path = HealthDataAccess;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 				02BFD2832BC08BC9009A2EB1 /* ContentView.swift in Sources */,
 				02BFD2812BC08BC9009A2EB1 /* StepsApp.swift in Sources */,
 				02BFD2902BC17EF9009A2EB1 /* HealthDataAccessManager.swift in Sources */,
+				029843C62BFA9F8B0000BF0A /* ListRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,18 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
-    
     @StateObject private var healthService = HealthDataAccessManager()
-    
     var body: some View {
-        VStack {
-            Text("Your Average is \(healthService.stepsBaseline) ")
+        ZStack {
+            LinearGradient(colors: [.blue, .green], startPoint: .topLeading, endPoint: .bottomTrailing)
+                .ignoresSafeArea()
+            VStack(alignment: .leading) {
+                ListRowView(text: "Your adjusted average steps \(healthService.stepsBaseline)")
+            }
         }
-                
-        .padding()
     }
 }
 
 #Preview {
     ContentView()
+}
+
+extension ContentView {
+    var listRow: some View {
+        VStack {
+            
+        }
+    }
 }

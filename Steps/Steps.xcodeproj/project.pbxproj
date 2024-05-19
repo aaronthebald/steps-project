@@ -61,6 +61,7 @@
 				02BFD2912BC1D2A5009A2EB1 /* Steps.entitlements */,
 				02BFD28E2BC17ECC009A2EB1 /* HealthDataAccess */,
 				02BFD2802BC08BC9009A2EB1 /* StepsApp.swift */,
+				029843C52BFA9F8B0000BF0A /* ListRowView.swift */,
 				02BFD2822BC08BC9009A2EB1 /* ContentView.swift */,
 				02BFD2842BC08BCA009A2EB1 /* Assets.xcassets */,
 				02BFD2862BC08BCA009A2EB1 /* Preview Content */,
@@ -80,7 +81,6 @@
 			isa = PBXGroup;
 			children = (
 				02BFD28F2BC17EF9009A2EB1 /* HealthDataAccessManager.swift */,
-				029843C52BFA9F8B0000BF0A /* ListRowView.swift */,
 			);
 			path = HealthDataAccess;
 			sourceTree = "<group>";

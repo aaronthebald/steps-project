@@ -10,13 +10,14 @@ import HealthKit
 
 class HealthDataAccessManager: ObservableObject {
 
-    @Published var steps: String = ""
+    @Published var stepsToday: Int = 0
     @Published var stepsBaseline: Int = 0
     @Published var showAlert: Bool = false
     @Published var errorMessage: String?
 
     init() {
         self.requestAccess()
+        self.fetchStepCountToday()
         self.testStatisticsCollectionQueryCumulative()
     }
 
@@ -60,7 +61,6 @@ class HealthDataAccessManager: ObservableObject {
 
             print("Observer query detected a change")
             completionHandler()
-            self.steps = query.description
             }
         healthStore.execute(observerQuery)
         DispatchQueue.main.sync {
@@ -86,6 +86,26 @@ class HealthDataAccessManager: ObservableObject {
             }
         }
     }
+    
+    func fetchStepCountToday() {
+        guard let stepCountType = HKObjectType.quantityType(forIdentifier: .stepCount) else {
+            fatalError("*** Unable to get the step count type ***")
+        }
+        let now = Date()
+        let startOfDay = Calendar.current.startOfDay(for: Date())
+        let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: now, options: .strictStartDate)
+        let query = HKStatisticsQuery(quantityType: stepCountType, quantitySamplePredicate: predicate, options: .cumulativeSum) { (query, result, error) in
+            DispatchQueue.main.asyncAfter(deadline: .now()) { [self] in
+                if let sum = result?.sumQuantity() {
+                    self.stepsToday = Int(sum.doubleValue(for: .count()))
+                } else {
+                    print("Error fetching step count: \(error?.localizedDescription ?? "Unknown error")")
+                }
+            }
+        }
+        healthStore.execute(query)
+    }
+    
     func testStatisticsCollectionQueryCumulative() {
         // this is just setting the type of info we can read. If the user disallowed step info i think this would fail.
         guard let stepCountType = HKObjectType.quantityType(forIdentifier: .stepCount) else {

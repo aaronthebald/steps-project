@@ -10,24 +10,24 @@ import SwiftUI
 struct ContentView: View {
     @StateObject private var healthService = HealthDataAccessManager()
     var body: some View {
-        ZStack {
-            LinearGradient(colors: [.blue, .green], startPoint: .topLeading, endPoint: .bottomTrailing)
-                .ignoresSafeArea()
-            VStack(alignment: .leading) {
-                ListRowView(text: "Your adjusted average steps \(healthService.stepsBaseline)")
+        NavigationStack {
+            ZStack {
+                LinearGradient(colors: [.blue, .green], startPoint: .topLeading, endPoint: .bottomTrailing)
+                    .ignoresSafeArea()
+                VStack(alignment: .leading) {
+                    ListRowView(text: "You've taken \(healthService.stepsToday) today!")
+                    ListRowView(text: "Your adjusted average steps \(healthService.stepsBaseline)")
+                    ListRowView(text: healthService.stepsToday > healthService.stepsBaseline ?
+                                "Great work!" : "Keep trying you only have \(healthService.stepsBaseline - healthService.stepsToday ) to go!")
+                    Spacer()
+                }
             }
+            .navigationTitle("Step Challenge")
+
         }
     }
 }
 
 #Preview {
     ContentView()
-}
-
-extension ContentView {
-    var listRow: some View {
-        VStack {
-            
-        }
-    }
 }

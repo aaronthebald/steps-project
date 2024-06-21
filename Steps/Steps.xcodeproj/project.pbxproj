@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		029843C62BFA9F8B0000BF0A /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029843C52BFA9F8B0000BF0A /* ListRowView.swift */; };
+		02A8D5012C24EE7F00E82883 /* WatchContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A8D5002C24EE7F00E82883 /* WatchContentView.swift */; };
+		02A8D5032C24EE8100E82883 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02A8D5022C24EE8100E82883 /* Assets.xcassets */; };
+		02A8D5062C24EE8100E82883 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02A8D5052C24EE8100E82883 /* Preview Assets.xcassets */; };
+		02A8D5092C24EE8100E82883 /* WatchMySteps Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 02A8D4FC2C24EE7F00E82883 /* WatchMySteps Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		02A8D50E2C24F58200E82883 /* StepsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BFD2802BC08BC9009A2EB1 /* StepsApp.swift */; };
+		02A8D50F2C24F58200E82883 /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029843C52BFA9F8B0000BF0A /* ListRowView.swift */; };
+		02A8D5102C24F58200E82883 /* HealthDataAccessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BFD28F2BC17EF9009A2EB1 /* HealthDataAccessManager.swift */; };
+		02A8D5112C24F58200E82883 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BFD2822BC08BC9009A2EB1 /* ContentView.swift */; };
 		02BFD2812BC08BC9009A2EB1 /* StepsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BFD2802BC08BC9009A2EB1 /* StepsApp.swift */; };
 		02BFD2832BC08BC9009A2EB1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BFD2822BC08BC9009A2EB1 /* ContentView.swift */; };
 		02BFD2852BC08BCA009A2EB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02BFD2842BC08BCA009A2EB1 /* Assets.xcassets */; };
@@ -15,8 +23,37 @@
 		02BFD2902BC17EF9009A2EB1 /* HealthDataAccessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BFD28F2BC17EF9009A2EB1 /* HealthDataAccessManager.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		02A8D5072C24EE8100E82883 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02BFD2752BC08BC9009A2EB1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 02A8D4FB2C24EE7F00E82883;
+			remoteInfo = "WatchMySteps Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		02A8D50A2C24EE8100E82883 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				02A8D5092C24EE8100E82883 /* WatchMySteps Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		029843C52BFA9F8B0000BF0A /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
+		02A8D4FC2C24EE7F00E82883 /* WatchMySteps Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchMySteps Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		02A8D5002C24EE7F00E82883 /* WatchContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchContentView.swift; sourceTree = "<group>"; };
+		02A8D5022C24EE8100E82883 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		02A8D5052C24EE8100E82883 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		02A8D5122C24F70B00E82883 /* WatchMySteps Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WatchMySteps Watch App.entitlements"; sourceTree = "<group>"; };
 		02BFD27D2BC08BC9009A2EB1 /* Steps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Steps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02BFD2802BC08BC9009A2EB1 /* StepsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsApp.swift; sourceTree = "<group>"; };
 		02BFD2822BC08BC9009A2EB1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -28,6 +65,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		02A8D4F92C24EE7F00E82883 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		02BFD27A2BC08BC9009A2EB1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -38,10 +82,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02A8D4FD2C24EE7F00E82883 /* WatchMySteps Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				02A8D5122C24F70B00E82883 /* WatchMySteps Watch App.entitlements */,
+				02A8D5002C24EE7F00E82883 /* WatchContentView.swift */,
+				02A8D5022C24EE8100E82883 /* Assets.xcassets */,
+				02A8D5042C24EE8100E82883 /* Preview Content */,
+			);
+			path = "WatchMySteps Watch App";
+			sourceTree = "<group>";
+		};
+		02A8D5042C24EE8100E82883 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				02A8D5052C24EE8100E82883 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		02BFD2742BC08BC9009A2EB1 = {
 			isa = PBXGroup;
 			children = (
 				02BFD27F2BC08BC9009A2EB1 /* Steps */,
+				02A8D4FD2C24EE7F00E82883 /* WatchMySteps Watch App */,
 				02BFD27E2BC08BC9009A2EB1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				02BFD27D2BC08BC9009A2EB1 /* Steps.app */,
+				02A8D4FC2C24EE7F00E82883 /* WatchMySteps Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -88,6 +153,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		02A8D4FB2C24EE7F00E82883 /* WatchMySteps Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 02A8D50D2C24EE8100E82883 /* Build configuration list for PBXNativeTarget "WatchMySteps Watch App" */;
+			buildPhases = (
+				02A8D4F82C24EE7F00E82883 /* Sources */,
+				02A8D4F92C24EE7F00E82883 /* Frameworks */,
+				02A8D4FA2C24EE7F00E82883 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WatchMySteps Watch App";
+			productName = "WatchMySteps Watch App";
+			productReference = 02A8D4FC2C24EE7F00E82883 /* WatchMySteps Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
 		02BFD27C2BC08BC9009A2EB1 /* Steps */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 02BFD28B2BC08BCA009A2EB1 /* Build configuration list for PBXNativeTarget "Steps" */;
@@ -96,10 +178,12 @@
 				02BFD27A2BC08BC9009A2EB1 /* Frameworks */,
 				02BFD27B2BC08BC9009A2EB1 /* Resources */,
 				026B80992BDDA7C500357931 /* ShellScript */,
+				02A8D50A2C24EE8100E82883 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				02A8D5082C24EE8100E82883 /* PBXTargetDependency */,
 			);
 			name = Steps;
 			productName = Steps;
@@ -113,9 +197,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1530;
+				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
+					02A8D4FB2C24EE7F00E82883 = {
+						CreatedOnToolsVersion = 16.0;
+					};
 					02BFD27C2BC08BC9009A2EB1 = {
 						CreatedOnToolsVersion = 15.3;
 					};
@@ -135,11 +222,21 @@
 			projectRoot = "";
 			targets = (
 				02BFD27C2BC08BC9009A2EB1 /* Steps */,
+				02A8D4FB2C24EE7F00E82883 /* WatchMySteps Watch App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		02A8D4FA2C24EE7F00E82883 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02A8D5062C24EE8100E82883 /* Preview Assets.xcassets in Resources */,
+				02A8D5032C24EE8100E82883 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		02BFD27B2BC08BC9009A2EB1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -172,6 +269,18 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		02A8D4F82C24EE7F00E82883 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02A8D5012C24EE7F00E82883 /* WatchContentView.swift in Sources */,
+				02A8D50E2C24F58200E82883 /* StepsApp.swift in Sources */,
+				02A8D50F2C24F58200E82883 /* ListRowView.swift in Sources */,
+				02A8D5102C24F58200E82883 /* HealthDataAccessManager.swift in Sources */,
+				02A8D5112C24F58200E82883 /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		02BFD2792BC08BC9009A2EB1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -185,7 +294,83 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		02A8D5082C24EE8100E82883 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 02A8D4FB2C24EE7F00E82883 /* WatchMySteps Watch App */;
+			targetProxy = 02A8D5072C24EE8100E82883 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		02A8D50B2C24EE8100E82883 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "WatchMySteps Watch App/WatchMySteps Watch App.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"WatchMySteps Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = MW75NQ7TG5;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = WatchMySteps;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Need to read step count";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.AaronWilson.Steps;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.AaronWilson.Steps.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Debug;
+		};
+		02A8D50C2C24EE8100E82883 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "WatchMySteps Watch App/WatchMySteps Watch App.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"WatchMySteps Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = MW75NQ7TG5;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = WatchMySteps;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Need to read step count";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.AaronWilson.Steps;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.AaronWilson.Steps.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Release;
+		};
 		02BFD2892BC08BCA009A2EB1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -380,6 +565,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		02A8D50D2C24EE8100E82883 /* Build configuration list for PBXNativeTarget "WatchMySteps Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02A8D50B2C24EE8100E82883 /* Debug */,
+				02A8D50C2C24EE8100E82883 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		02BFD2782BC08BC9009A2EB1 /* Build configuration list for PBXProject "Steps" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
